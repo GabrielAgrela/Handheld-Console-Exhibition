@@ -18,7 +18,9 @@
     
     
     
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous"></script>
+
+
     <script src="js/three.js"></script>
 
     <script type="application/ld+json">{
@@ -119,9 +121,9 @@
           
           <script type="module">
             import * as THREE from 'https://cdn.skypack.dev/three@0.129.0/build/three.module.js';
-            import { OrbitControls } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js';
-            import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js';
-
+import { OrbitControls } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js';
+            
             var scene3d = document.getElementById("scene3d");
             var CANVAS_WIDTH = document.getElementById("carousel_a5f2").clientWidth/2;
             var CANVAS_HEIGHT = document.getElementById("carousel_a5f2").clientHeight;
@@ -137,10 +139,22 @@
             renderer.setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
 
             // GEOMETRY & MATERIALS
-            // load model "ps2.gltf" from models/ three.js
+            
+            //load glft
+            const loader = new GLTFLoader();
+
+            loader.load( 'models/ps2.gltf', function ( gltf ) {
+
+              scene.add( gltf.scene );
+
+            }, undefined, function ( error ) {
+
+              console.error( error );
+
+            } );
+            /*// load model "ps2.gltf" from models/ three.js
             const loader = new THREE.GLTFLoader();
             var obj;
-            //load glft
             loader.load( 'models/ps2.gltf', function ( gltf ) 
             {
               obj = gltf.scene;
@@ -148,7 +162,7 @@
                 animate();
             }, undefined, function ( error ) {
               console.error( error );
-            } );
+            } );*/
             // LIGHT
 
             var spot1 = new THREE.SpotLight(0xffffff);
