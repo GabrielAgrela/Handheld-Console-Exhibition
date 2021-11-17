@@ -119,15 +119,15 @@
           
           <script type="module">
             import * as THREE from 'https://cdn.skypack.dev/three@0.129.0/build/three.module.js';
-import { OrbitControls } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js';
-import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js';
+            import { OrbitControls } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js';
+            import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js';
 
             var scene3d = document.getElementById("scene3d");
             var CANVAS_WIDTH = document.getElementById("carousel_a5f2").clientWidth/2;
             var CANVAS_HEIGHT = document.getElementById("carousel_a5f2").clientHeight;
 
             // SCENE
-            scene = new THREE.Scene();
+            var scene = new THREE.Scene();
 
             // CAMERA 
             const camera = new THREE.PerspectiveCamera( 75, CANVAS_WIDTH / CANVAS_HEIGHT, 0.1, 1000 );
