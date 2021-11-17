@@ -140,15 +140,12 @@ import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
             renderer.setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
 
             // GEOMETRY & MATERIALS
-            const geometry = new THREE.BoxGeometry();
+            /*const geometry = new THREE.BoxGeometry();
             const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
             const cube = new THREE.Mesh( geometry, material );
             scene.add( cube );
-
-            // three js glass meshmaterial as material
-
-            cube.position.set(0, -1, 0);
-            cube.scale.set(5, .2, 3);
+            */
+            
 
             //load Console
             const loader = new GLTFLoader();
@@ -169,7 +166,7 @@ import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
             loader.load( 'https://gabrielagrela.github.io/Handheld-Console-Exhibition/models/DisplayGlass.gltf', function ( gltf ) 
             {
               obj=gltf.scene;
-              obj.position.set(0, -1, 0);
+              //obj.position.set(0, -1, 0);
               scene.add( obj);
             }, undefined, function ( error ) {
 
