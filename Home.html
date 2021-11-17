@@ -133,7 +133,7 @@
             //load Console Model
             const loader = new GLTFLoader();
             var console;
-            loader.load( 'https://gabrielagrela.github.io/Handheld-Console-Exhibition/models/ps2.gltf', function ( gltf ) 
+            loader.load( 'https://gabrielagrela.github.io/Handheld-Console-Exhibition/models/ps2/scene.gltf', function ( gltf ) 
             {
               console=gltf.scene;
               console.position.set(0, 1, 0);
@@ -145,7 +145,7 @@
             
             // Load DisplayGlass Model
             var DisplayGlass;
-            loader.load( 'https://gabrielagrela.github.io/Handheld-Console-Exhibition/models/DisplayGlass.gltf', function ( gltf ) 
+            loader.load( 'https://gabrielagrela.github.io/Handheld-Console-Exhibition/models/DisplayGlass/DisplayGlass.gltf', function ( gltf ) 
             {
               DisplayGlass=gltf.scene;
               DisplayGlass.position.set(0, -1, 0);
