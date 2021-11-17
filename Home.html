@@ -133,48 +133,61 @@ import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
 
             // CAMERA 
             const camera = new THREE.PerspectiveCamera( 75, CANVAS_WIDTH / CANVAS_HEIGHT, 0.1, 1000 );
-            camera.position.z = 5;
+            camera.position.set(0, 2, 5);
+            camera.rotation.set(-.3, 0, 0);
             // RENDERER
             var renderer = new THREE.WebGLRenderer();
             renderer.setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
 
             // GEOMETRY & MATERIALS
-            
-            //load glft
+            const geometry = new THREE.BoxGeometry();
+            const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+            const cube = new THREE.Mesh( geometry, material );
+            scene.add( cube );
+
+            // three js glass meshmaterial as material
+
+            cube.position.set(0, -1, 0);
+            cube.scale.set(5, .2, 3);
+
+            //load Console
             const loader = new GLTFLoader();
-
-            loader.load( 'models/scene.gltf', function ( gltf ) {
-
-              scene.add( gltf.scene );
-
+            var obj;
+            loader.load( 'https://gabrielagrela.github.io/Handheld-Console-Exhibition/models/scene.gltf', function ( gltf ) 
+            {
+              obj=gltf.scene;
+              obj.position.set(0, 1, 0);
+              scene.add( obj);
+              animate();
             }, undefined, function ( error ) {
 
               console.error( error );
 
             } );
-            /*// load model "ps2.gltf" from models/ three.js
-            const loader = new THREE.GLTFLoader();
-            var obj;
-            loader.load( 'models/ps2.gltf', function ( gltf ) 
-            {
-              obj = gltf.scene;
-                scene.add( obj );
-                animate();
-            }, undefined, function ( error ) {
-              console.error( error );
-            } );*/
-            // LIGHT
 
+            // Load DisplayGlass
+            loader.load( 'https://gabrielagrela.github.io/Handheld-Console-Exhibition/models/DisplayGlass.gltf', function ( gltf ) 
+            {
+              obj=gltf.scene;
+              obj.position.set(0, -1, 0);
+              scene.add( obj);
+            }, undefined, function ( error ) {
+
+              console.error( error );
+
+            } );
+
+            // LIGHT
             var spot1 = new THREE.SpotLight(0xffffff);
-            spot1.position.set(10, 100, -50);
+            spot1.position.set(0, 15, 0);
             scene.add(spot1);
 
             // FINISH SCENE SETUP
             const animate = function () {
               requestAnimationFrame( animate );
 
-              obj.rotation.x += 0.01;
-              obj.rotation.y += 0.01;
+              //obj.rotation.x += 0.01;
+              obj.rotation.y += 0.002;
 
               renderer.render( scene, camera );
             };
@@ -237,3 +250,4 @@ import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
     </section>
   </body>
 </html>
+
