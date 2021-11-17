@@ -19,9 +19,23 @@
     
     
     
-    <script src="js/three.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/three@0.115/examples/js/loaders/GLTFLoader.js"></script>
+    <script type="module">
+      import * as THREE from 'https://cdn.skypack.dev/three@0.129.0/build/three.module.js';
+      import { OrbitControls } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js';
+      import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js';
+      
+      
+       //load 3d model
+          const loader = new GLTFLoader();
+          loader.load( 'https://www.historia3d.pl/wp-content/uploads/2021/05/mini_3D02.glb', function ( gltf ) {
+              model = gltf.scene.children[0];
+              model.scale.set(0.5,0.5,0.5);
+              scene.add( gltf.scene );
+          },
+          undefined, function ( error ) {
+              console.error( error );
+          } );
+      </script>
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
