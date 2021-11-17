@@ -137,6 +137,7 @@
             {
               console=gltf.scene;
               console.position.set(0, 1, 0);
+              console.rotation.set(0, 1.55, 1.55);
               scene.add( console);
               animate();
             }, undefined, function ( error ) {
@@ -155,15 +156,36 @@
             } );
 
             // LIGHT
-            var spotlight = new THREE.SpotLight(0xffffff);
-            spotlight.position.set(0, 10, -1);
-            spotlight.intensity = 2;
-            scene.add(spotlight);
+            var spotLight1 = new THREE.SpotLight(0xffffff);
+            spotLight1.position.set(0, 10, 0);
+            spotLight1.intensity = 2;
+            scene.add(spotLight1);
+
+            var spotLight2 = new THREE.SpotLight(0xffffff);
+            spotLight2.position.set(10, 10, 0);
+            spotLight2.intensity = .5;
+            scene.add(spotLight2);
+
+            var spotLight3 = new THREE.SpotLight(0xffffff);
+            spotLight3.position.set(0, 10, 10);
+            spotLight3.intensity = .5;
+            scene.add(spotLight3);
+
+            var spotLight4 = new THREE.SpotLight(0xffffff);
+            spotLight4.position.set(-10, 10, 0);
+            spotLight4.intensity = .5;
+            scene.add(spotLight4);
+
+            /*var ambientLight = new THREE.AmbientLight(0xffffff);
+            ambientLight.position.set(0, 2, 0);
+            scene.add(ambientLight);*/
 
             // Console animation
             const animate = function () {
               requestAnimationFrame( animate );
+              console.rotation.x += 0.002;
               console.rotation.y += 0.002;
+              console.rotation.z += 0.002;
               renderer.render( scene, camera );
             };
 
