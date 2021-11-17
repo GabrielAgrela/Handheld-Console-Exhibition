@@ -3,7 +3,7 @@ import { OrbitControls } from 'https://cdn.skypack.dev/three@0.129.0/examples/js
 import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js'; // Model loader
 
 var exhibitionScene = document.getElementById("Exhibition");
-var CANVAS_WIDTH = document.getElementById("carousel_a5f2").clientWidth/2;
+var CANVAS_WIDTH = document.getElementById("carousel_a5f2").clientWidth*.7;
 var CANVAS_HEIGHT = document.getElementById("carousel_a5f2").clientHeight;
 
 // SCENE
