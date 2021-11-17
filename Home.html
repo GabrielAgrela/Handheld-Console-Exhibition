@@ -149,12 +149,12 @@ import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
 
             //load Console
             const loader = new GLTFLoader();
-            var obj;
+            var console;
             loader.load( 'https://gabrielagrela.github.io/Handheld-Console-Exhibition/models/scene.gltf', function ( gltf ) 
             {
-              obj=gltf.scene;
-              obj.position.set(0, 1, 0);
-              scene.add( obj);
+              console=gltf.scene;
+              console.position.set(0, 1, 0);
+              scene.add( console);
               animate();
             }, undefined, function ( error ) {
 
@@ -162,12 +162,14 @@ import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
 
             } );
 
+            
             // Load DisplayGlass
+            var DisplayGlass;
             loader.load( 'https://gabrielagrela.github.io/Handheld-Console-Exhibition/models/DisplayGlass.gltf', function ( gltf ) 
             {
-              obj=gltf.scene;
-              //obj.position.set(0, -1, 0);
-              scene.add( obj);
+              DisplayGlass=gltf.scene;
+              DisplayGlass.position.set(0, -1, 0);
+              scene.add( DisplayGlass);
             }, undefined, function ( error ) {
 
               console.error( error );
@@ -175,16 +177,17 @@ import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
             } );
 
             // LIGHT
-            var spot1 = new THREE.SpotLight(0xffffff);
-            spot1.position.set(0, 15, 0);
-            scene.add(spot1);
+            var spotlight = new THREE.SpotLight(0xffffff);
+            spotlight.position.set(0, 10, -1);
+            spotlight.intensity = 2;
+            scene.add(spotlight);
 
             // FINISH SCENE SETUP
             const animate = function () {
               requestAnimationFrame( animate );
 
               //obj.rotation.x += 0.01;
-              obj.rotation.y += 0.002;
+              console.rotation.y += 0.002;
 
               renderer.render( scene, camera );
             };
