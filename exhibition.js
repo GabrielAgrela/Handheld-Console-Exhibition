@@ -8,7 +8,7 @@ var CANVAS_HEIGHT = document.getElementById("carousel_a5f2").clientHeight*.9;
 
 // SCENE
 var scene = new THREE.Scene();
-scene.background = new THREE.Color( 0x000000 );
+scene.background = new THREE.Color( 0x1F1520 );
 
 
 // CAMERA 
@@ -53,7 +53,7 @@ const animate = function () {
     /*console.rotation.x += 0.002;
     console.rotation.y += 0.002;
     console.rotation.z += 0.002;*/
-    scene.background = new THREE.Color( 0x1F1520 );
+    
     renderer.render( scene, camera ); //render per frame
 };
 
