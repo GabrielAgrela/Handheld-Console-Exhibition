@@ -1,7 +1,9 @@
 #Exhibition{
   margin-left: 0%;
 }
-
+.margin-fix{
+  margin: 2%;
+}
  .u-section-1 {
   background-image: url("images/2dbb4176c50a65f43fcc117027264e980117852eda36c2ab1ee2b74ef3781f83d33940f7c0225ccee40c91ea30271e35fe56b7a7bc9f66d9766400_1280.jpg");
   background-position: 50% 50%;

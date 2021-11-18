@@ -3,8 +3,8 @@ import { OrbitControls } from 'https://cdn.skypack.dev/three@0.129.0/examples/js
 import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js'; // Model loader
 
 var exhibitionScene = document.getElementById("Exhibition");
-var CANVAS_WIDTH = document.getElementById("carousel_a5f2").clientWidth*.7;
-var CANVAS_HEIGHT = document.getElementById("carousel_a5f2").clientHeight;
+var CANVAS_WIDTH = document.getElementById("carousel_a5f2").clientWidth*.6;
+var CANVAS_HEIGHT = document.getElementById("carousel_a5f2").clientHeight*.9;
 
 // SCENE
 var scene = new THREE.Scene();
@@ -28,7 +28,7 @@ controls.enablePan = false;
 // load Console Model and set its position
 const loader = new GLTFLoader();
 var console;
-loader.load( 'https://gabrielagrela.github.io/Handheld-Console-Exhibition/models/ps2/scene.gltf', function ( gltf ) 
+loader.load( 'models/ps2/scene.gltf', function ( gltf ) 
 {
     console=gltf.scene;
     scene.add( console);
